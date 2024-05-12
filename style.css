@@ -1,0 +1,191 @@
+browser-sync start --server --directory --files "*"
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+img{
+    width: 100%;
+    display: flex;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: 'Manrope', sans-serif;
+    background-color: #171717;
+    overflow-x: hidden;
+    cursor: url("images/a.png");
+}
+nav{
+    max-width: 1720px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.nav-logo {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-logo img {
+    max-width: 100px;
+    transition: opacity 0.3s ease; /* Hiệu ứng làm mờ dần ảnh cũ */
+}
+
+.nav-logo:hover img {
+    opacity: 0; /* Làm ảnh cũ mờ hoàn toàn khi hover */
+}
+
+.nav-logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/Empty.png"); /* Đường dẫn đến hình ảnh khi hover */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Hiệu ứng xuất hiện ảnh mới */
+    pointer-events: none;
+}
+
+.nav-logo:hover::after {
+    opacity: 1; /* Hiển thị ảnh mới khi hover */
+}
+
+.nav-else{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.link a{
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: .75rem;
+    color: #fff;
+}
+.link a::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+.link a:hover::after{
+    width: 100%;
+}
+/* Cài đặt cơ bản cho theme-switcher và dropdown */
+.theme-switcher, .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Thiết lập chung cho nút của theme-switcher và dropdown */
+.dropbtn {
+    background-color: #171717; /* Màu nền của nút */
+    color: white; /* Màu chữ */
+    padding: 10px; /* Đệm xung quanh nội dung trong nút */
+    font-size: 1.5rem; /* Cỡ chữ tương tự như các liên kết khác */
+    border: none; /* Không viền */
+    cursor: pointer; /* Kiểu con trỏ khi di chuột qua */
+    border-radius: 4px; /* Bo góc của nút */
+    display: flex; /* Hiển thị nội dung theo dạng hàng ngang */
+    align-items: center; /* Căn giữa các mục theo chiều dọc */
+    justify-content: center; /* Căn giữa các mục theo chiều ngang */
+    position: relative; /* Vị trí tương đối */
+    padding-bottom: 0.75rem; /* Đệm dưới */
+    width: 180px; /* Cỡ rộng cố định cho các nút */
+    height: 50px; /* Cỡ cao cố định cho các nút */
+}
+
+.dropbtn::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.dropbtn:hover::after {
+    width: 100%; /* Đầy đủ chiều rộng khi hover */
+}
+
+/* Thiết kế cho biểu tượng trong nút */
+.dropbtn img {
+    height: 50px; /* Chiều cao của biểu tượng */
+    width: 50px; /* Chiều rộng của biểu tượng */
+    vertical-align: middle; /* Căn biểu tượng ngang bằng với chữ */
+}
+
+/* Cài đặt cho nội dung của theme-switcher và dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #171717;
+    min-width: 180px; /* Chiều rộng cố định */
+    width: 180px; /* Đảm bảo chiều rộng nhất quán */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    text-align: right; /* Căn phải cho dropdown */
+    overflow: hidden; /* Ngăn nội dung tràn ra ngoài */
+}
+
+.theme-switcher .dropdown-content {
+    text-align: left; /* Căn chỉnh văn bản sang trái cho theme-switcher */
+}
+
+.dropdown-content a {
+    color: white; /* Màu chữ của các mục */
+    padding: 10px 10px 10px 10px; /* Đệm cho các mục */
+    text-decoration: none; /* Bỏ gạch chân */
+    display: block; /* Hiển thị dạng block */
+    font-size: 1.5rem; /* Cỡ chữ giống như .link a */
+    position: relative; /* Vị trí tương đối cho hiệu ứng */
+    
+}
+
+.dropdown-content a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white; /* Màu nền của thanh hiệu ứng */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp */
+}
+
+.dropdown-content a:hover::after {
+    width: 100%; /* Đầy đủ chiều rộng khi hover */
+}
+
+.theme-switcher:hover .dropdown-content, .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.theme-switcher:hover .dropbtn, .dropdown:hover .dropbtn {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Bóng đổ cho dropdown */
+   
+}
